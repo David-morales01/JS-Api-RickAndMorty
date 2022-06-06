@@ -1,0 +1,264 @@
+:root {
+    --height--image: 350px;
+    --width--image: 300px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    margin-inline: 10px;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    font-family: 'Chilanka', cursive;
+    position: relative;
+    min-height: 100vh;
+    min-width: 360px;
+    width: 100%;
+}
+
+.main {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 50px;
+    padding-block: 100px;
+}
+
+.container {
+    position: relative;
+    width: auto;
+    max-width: calc(var(--width--image) * 6);
+    height: auto;
+    display: block;
+    box-shadow: 0px 0px 50px 5px black;
+    background-color: rgb(170, 166, 166);
+}
+
+.container__header {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+
+.container__header>img {
+    position: relative;
+    margin-inline: 20px;
+    height: 70px;
+}
+
+.navigation {
+    position: absolute;
+    inset-inline-end: 40px;
+    font-size: 20px;
+}
+
+.search {
+    position: relative;
+    margin-inline-start: 60px;
+    color: white;
+    font-size: 30px;
+    width: calc(var(--width--image) + 30px);
+    height: 100%;
+    display: flex;
+    background: rgba(0, 0, 0, 0.438);
+}
+
+.resultados {
+    position: absolute;
+    background-color: white;
+    height: 400px;
+    width: calc(var(--width--image) + 50px);
+    z-index: 3;
+    inset-inline-start: 0;
+    inset-block-start: 80px;
+    overflow-y: auto;
+    display: block;
+}
+
+.search>input {
+    all: unset;
+    font-size: 40px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: white;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    padding-inline-start: 20px;
+    background-color: rgba(255, 255, 255, 0.116);
+}
+
+input::placeholder {
+    color: white;
+    opacity: 0.4;
+    font-weight: 800;
+}
+
+.container__body {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    justify-content: space-around;
+}
+
+.image-container {
+    position: relative;
+    height: var(--height--image);
+    width: var(--width--image);
+    cursor: pointer;
+}
+
+.image-container>img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.loading {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.397);
+    color: white;
+    font-size: 10rem;
+}
+
+.writing,
+.writing>input {
+    background-color: white;
+    color: rgba(0, 0, 0, 0.568);
+}
+
+.result-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    margin-block: 10px;
+    font-weight: 1000;
+    padding-block: 10px;
+    align-items: center;
+    font-size: 16px;
+    color: black;
+}
+
+.result-container>img {
+    position: relative;
+    height: 100px;
+}
+
+.result-description {
+    width: max-content;
+}
+
+.result-container>p {
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.tooltip {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    inset-inline-start: 100%;
+    inset-block: 0;
+    z-index: 2;
+    background-color: white;
+}
+
+.tooltipright {
+    inset-inline-start: -200%;
+}
+
+.tooltipHeader {
+    background-color: black;
+    height: 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooltipBody {
+    text-align: center;
+    display: block;
+    height: calc(var(--height--image) - 40px);
+    padding-block: 30px;
+    font-weight: 900;
+}
+
+.tooltipBody>p {
+    position: relative;
+    width: 100%;
+    margin-block-end: 20px;
+}
+
+.messageError {
+    font-size: 40px;
+    position: absolute;
+    padding-inline: 20px;
+    width: 100%;
+    text-align: center;
+    font-weight: 900;
+    color: red;
+    margin-block: 40px;
+    word-wrap: break-word;
+}
+
+.shadow>.container__body>div::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.shadow>.container__body>.active::after {
+    display: none;
+}
+
+.noShow {
+    display: none;
+}
+
+.noShadow ::before {
+    display: none;
+}
+
+@media(max-width:1799px) {
+    .container__body {
+        row-gap: 20px;
+    }
+}
+
+@media(max-width:1000px) {
+    .tooltip {
+        width: 100%;
+    }
+}
